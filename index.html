@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oratly &mdash; Practice Before the Real Moment</title>
+  <meta name="description" content="Oratly helps young professionals improve how they speak in meetings, presentations, and high-pressure conversations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.formSubmitted){showSuccess();}"></iframe>
+  <style>
+    :root{--bg:#0C0C0B;--bg2:#141412;--bg3:#1C1C19;--cream:#F2EDE4;--muted:#A89E90;--accent:#FF5533;--awarm:#FF7A52;--gold:#F0C060;--line:rgba(242,237,228,0.1);--r:4px;--fh:'Bricolage Grotesque',sans-serif;--fb:'Lora',Georgia,serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--cream);font-family:var(--fb);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+    .lbl{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-weight:700;font-size:14px;letter-spacing:.04em;padding:14px 28px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s;}
+    .bp{background:var(--accent);color:#fff;}.bp:hover{background:var(--awarm);transform:translateY(-1px);}
+    .bg{background:transparent;color:var(--cream);border:1px solid rgba(242,237,228,.25);}.bg:hover{border-color:var(--cream);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;background:rgba(12,12,11,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+    .ni{display:flex;align-items:center;justify-content:space-between;}
+    .logo{font-family:var(--fh);font-weight:800;font-size:22px;letter-spacing:-.02em;}.logo span{color:var(--accent);}
+    .nc{display:flex;gap:12px;align-items:center;}
+    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 80px;position:relative;overflow:hidden;}
+    .hbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(255,85,51,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(240,192,96,.06) 0%,transparent 60%);}
+    .hgrid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);}
+    .hc{position:relative;z-index:1;}
+    .hey{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;}
+    .hdot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pu 2s ease-in-out infinite;}
+    @keyframes pu{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+    h1{font-family:var(--fh);font-weight:800;font-size:clamp(48px,7vw,96px);line-height:1;letter-spacing:-.03em;max-width:900px;margin-bottom:28px;}
+    h1 em{font-style:italic;font-family:var(--fb);font-weight:400;color:var(--accent);}
+    .hsub{font-size:18px;color:var(--muted);max-width:580px;margin-bottom:48px;line-height:1.7;}
+    .ha{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
+    .ht{font-family:var(--fh);font-size:12px;color:var(--muted);letter-spacing:.03em;}
+    .hscroll{position:absolute;bottom:32px;right:32px;z-index:1;}
+    .sl{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--accent));animation:sla 2s ease-in-out infinite;}
+    @keyframes sla{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+    section{padding:100px 0;}.sh{margin-bottom:64px;}
+    h2{font-family:var(--fh);font-weight:800;font-size:clamp(32px,4.5vw,56px);line-height:1.1;letter-spacing:-.025em;margin-top:12px;}
+    h3{font-family:var(--fh);font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:8px;}
+    #problem{background:var(--bg2);}
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+    .pi p{color:var(--muted);margin-bottom:20px;font-size:17px;}
+    .pi p strong{color:var(--cream);font-weight:500;font-style:italic;font-family:var(--fb);}
+    .pl{list-style:none;display:flex;flex-direction:column;}
+    .pl li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted);transition:color .2s;}
+    .pl li:hover{color:var(--cream);}
+    .pl li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px;}
+    #why{background:var(--bg);}
+    .ct{font-family:var(--fh);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+    .ct.bad{color:var(--muted);}.ct.good{color:var(--gold);}
+    .ci{display:flex;flex-direction:column;}
+    .citem{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted);}
+    .gc .citem{color:var(--cream);}
+    #how{background:var(--bg3);}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .step{background:var(--bg2);padding:36px 28px;transition:background .2s;}.step:hover{background:var(--bg3);}
+    .sn{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+    .step h3{font-size:18px;margin-bottom:12px;}.step p{font-size:14px;color:var(--muted);line-height:1.6;}
+    #features{background:var(--bg2);}
+    .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .fc{background:var(--bg);padding:36px 32px;transition:background .25s;position:relative;overflow:hidden;}
+    .fc::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--accent);transition:height .3s ease;}
+    .fc:hover{background:var(--bg3);}.fc:hover::after{height:100%;}
+    .fi{font-size:28px;margin-bottom:16px;display:block;}
+    .fc h3{font-size:17px;margin-bottom:10px;}.fc p{font-size:14px;color:var(--muted);line-height:1.65;}
+    #signup{background:var(--bg);position:relative;overflow:hidden;}
+    #signup::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,51,.08) 0%,transparent 70%);pointer-events:none;}
+    .sl2{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+    .sleft h2{margin-bottom:20px;}.sleft p{color:var(--muted);font-size:16px;margin-bottom:40px;}
+    .proof{display:flex;flex-direction:column;gap:12px;}
+    .pi2{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:13px;color:var(--muted);}
+    .ck{width:18px;height:18px;border-radius:50%;background:rgba(255,85,51,.15);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--accent);flex-shrink:0;}
+    .fcard{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:44px 40px;}
+    .ftitle{font-family:var(--fh);font-size:20px;font-weight:700;margin-bottom:32px;}
+    .fr{margin-bottom:20px;}
+    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+    label{display:block;font-family:var(--fh);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    input[type=text],input[type=email],select,textarea{width:100%;background:var(--bg3);border:1px solid rgba(242,237,228,.12);border-radius:var(--r);padding:13px 16px;font-family:var(--fb);font-size:15px;color:var(--cream);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+    input::placeholder,textarea::placeholder{color:rgba(168,158,144,.5);}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);}
+    select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A89E90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;}
+    select option{background:#1C1C19;}
+    textarea{resize:vertical;min-height:90px;line-height:1.6;}
+    .rg{display:flex;gap:10px;}.ro{flex:1;}
+    .ro input[type=radio]{display:none;}
+    .ro label{display:flex;align-items:center;justify-content:center;width:100%;padding:11px 16px;background:var(--bg3);border:1px solid rgba(242,237,228,.12);border-radius:var(--r);cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--muted);transition:all .2s;margin-bottom:0;}
+    .ro input:checked+label{border-color:var(--accent);color:var(--accent);background:rgba(255,85,51,.08);}
+    .ro label:hover{border-color:rgba(242,237,228,.3);}
+    .bsub{width:100%;padding:16px;font-size:15px;letter-spacing:.06em;border-radius:var(--r);margin-top:8px;justify-content:center;}
+    .mc{text-align:center;font-family:var(--fh);font-size:11px;color:var(--muted);margin-top:14px;letter-spacing:.04em;}
+    #fs{display:none;text-align:center;padding:60px 20px;}
+    #fs .si{font-size:48px;margin-bottom:20px;display:block;}
+    #fs h3{font-size:24px;margin-bottom:12px;}#fs p{color:var(--muted);font-size:15px;}
+    #faq{background:var(--bg2);}
+    .fl{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+    .flist{display:flex;flex-direction:column;}
+    .fi2{border-bottom:1px solid var(--line);}
+    .fq{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0;font-family:var(--fh);font-size:16px;font-weight:600;color:var(--cream);text-align:left;}
+    .fq:hover{color:var(--accent);}
+    .fch{flex-shrink:0;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;transition:transform .25s,background .2s;}
+    .fi2.open .fch{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);}
+    .fa{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+    .fai{padding-bottom:24px;font-size:15px;color:var(--muted);line-height:1.75;}
+    .fi2.open .fa{max-height:300px;}
+    footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 0;}
+    .fti{display:flex;align-items:center;justify-content:space-between;}
+    .fc2{font-family:var(--fh);font-size:12px;color:var(--muted);letter-spacing:.04em;}
+    .rev{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+    .rev.vis{opacity:1;transform:translateY(0);}
+    @media(max-width:900px){
+      .g2,.sl2,.fl{grid-template-columns:1fr;gap:48px;}
+      .steps{grid-template-columns:1fr 1fr;}.fg{grid-template-columns:1fr 1fr;}
+      .fti{flex-direction:column;gap:16px;text-align:center;}
+    }
+    @media(max-width:600px){
+      h1{font-size:40px;}.steps,.fg{grid-template-columns:1fr;}
+      .fcard{padding:28px 20px;}.fr2{grid-template-columns:1fr;}
+      .nc .bg{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="ni">
+      <a href="#" class="logo">Orat<span>.</span>ly</a>
+      <div class="nc">
+        <a href="#signup" class="btn bg">Join Waitlist</a>
+        <a href="#how" class="btn bp">How It Works</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hgrid"></div>
+  <div class="wrap">
+    <div class="hc">
+      <div class="hey"><div class="hdot"></div><span class="lbl">Beta Waitlist Open</span></div>
+      <h1>Practice before<br>the <em>real</em> moment.</h1>
+      <p class="hsub">Oratly helps young professionals improve how they speak in meetings, presentations, and high-pressure conversations &mdash; through guided practice, private video rehearsal, and feedback that turns awkward reps into real progress.</p>
+      <div class="ha">
+        <a href="#signup" class="btn bp" style="font-size:15px;padding:16px 32px;">Join the Beta Waitlist</a>
+        <a href="#how" class="btn bg" style="font-size:15px;padding:16px 32px;">Watch the 45-sec Demo &darr;</a>
+      </div>
+      <p class="ht">For professionals who want to sound clearer, more confident, and more prepared at work.</p>
+    </div>
+  </div>
+  <div class="hscroll"><div class="sl"></div></div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="sh rev">
+      <span class="lbl">The Problem</span>
+      <h2>You know what you want to say.</h2>
+    </div>
+    <div class="g2">
+      <div class="pi rev">
+        <p>Saying it clearly <strong>in the moment</strong> is the hard part.</p>
+        <p>The problem usually is not lack of ambition. It is lack of structured practice.</p>
+        <p>Most people either avoid practicing, do it randomly, or record themselves once &mdash; and never turn that into improvement.</p>
+      </div>
+      <div class="rev" style="transition-delay:.15s">
+        <ul class="pl">
+          <li>Speaking up in meetings when it counts</li>
+          <li>Organizing thoughts clearly under pressure</li>
+          <li>Sounding confident during presentations</li>
+          <li>Thinking on your feet when put on the spot</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOT PHONE -->
+<section id="why">
+  <div class="wrap">
+    <div class="sh rev">
+      <span class="lbl">Why Oratly</span>
+      <h2>A phone can record you.<br>Oratly helps you improve.</h2>
+    </div>
+    <div class="g2">
+      <div class="rev">
+        <p class="ct bad">With just your phone</p>
+        <div class="ci">
+          <div class="citem"><span style="flex-shrink:0;">&#10005;</span>You still have to decide what to practice</div>
+          <div class="citem"><span style="flex-shrink:0;">&#10005;</span>You often avoid doing it regularly</div>
+          <div class="citem"><span style="flex-shrink:0;">&#10005;</span>No built-in guidance on what to improve</div>
+          <div class="citem"><span style="flex-shrink:0;">&#10005;</span>No accountability keeping you consistent</div>
+          <div class="citem"><span style="flex-shrink:0;">&#10005;</span>Most recordings never become a habit</div>
+        </div>
+      </div>
+      <div class="gc rev" style="transition-delay:.15s">
+        <p class="ct good">With Oratly</p>
+        <div class="ci">
+          <div class="citem"><span style="flex-shrink:0;color:var(--gold);">&#10003;</span>Guided practice &mdash; structured for real improvement</div>
+          <div class="citem"><span style="flex-shrink:0;color:var(--gold);">&#10003;</span>Repeatable sessions that build a real habit</div>
+          <div class="citem"><span style="flex-shrink:0;color:var(--gold);">&#10003;</span>Measurable feedback to track your progress</div>
+          <div class="citem"><span style="flex-shrink:0;color:var(--gold);">&#10003;</span>Built-in accountability so you don&rsquo;t quit</div>
+          <div class="citem"><span style="flex-shrink:0;color:var(--gold);">&#10003;</span>A system &mdash; not just a recording</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="sh rev">
+      <span class="lbl">How It Works</span>
+      <h2>Four steps to a better speaking habit.</h2>
+    </div>
+    <div class="steps rev">
+      <div class="step"><div class="sn">Step 01</div><h3>Pick a speaking drill</h3><p>Choose from short practice sessions, impromptu prompts, speech warmups, and guided speaking formats.</p></div>
+      <div class="step"><div class="sn">Step 02</div><h3>Record privately</h3><p>Practice in a low-pressure environment before the real meeting, presentation, or work conversation.</p></div>
+      <div class="step"><div class="sn">Step 03</div><h3>Review and improve</h3><p>Use feedback and repetition to notice patterns, sharpen clarity, and build confidence over time.</p></div>
+      <div class="step"><div class="sn">Step 04</div><h3>Stay consistent</h3><p>Use streaks, challenges, and accountability to keep practice from fading after day two.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="sh rev">
+      <span class="lbl">Features</span>
+      <h2>Designed to turn speaking practice into a habit.</h2>
+    </div>
+    <div class="fg rev">
+      <div class="fc"><span class="fi">&#9889;</span><h3>Short practice sessions</h3><p>Quick drills that fit into a busy day and make practice feel doable, not daunting.</p></div>
+      <div class="fc"><span class="fi">&#127919;</span><h3>Impromptu speaking</h3><p>Get better at thinking and speaking on the spot instead of freezing in the moment.</p></div>
+      <div class="fc"><span class="fi">&#127777;&#65039;</span><h3>Speech warmups</h3><p>Tongue twisters and warmup exercises to loosen up before important moments.</p></div>
+      <div class="fc"><span class="fi">&#127909;</span><h3>Private video rehearsal</h3><p>Practice in private so you can get comfortable seeing and hearing yourself speak.</p></div>
+      <div class="fc"><span class="fi">&#128202;</span><h3>Useful feedback</h3><p>Go beyond &ldquo;that felt awkward&rdquo; and start noticing exactly what to improve next.</p></div>
+      <div class="fc"><span class="fi">&#128293;</span><h3>Streaks &amp; accountability</h3><p>Stay motivated with visible progress, practice momentum, and structured challenges.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section id="signup">
+  <div class="wrap">
+    <div class="sl2">
+      <div class="sleft rev">
+        <span class="lbl">Beta Waitlist</span>
+        <h2>Help shape Oratly.</h2>
+        <p>We&rsquo;re building Oratly for professionals who want to become stronger, more confident speakers through consistent practice. Join the beta waitlist to get early access and tell us what actually helps.</p>
+        <div class="proof">
+          <div class="pi2"><div class="ck">&#10003;</div>Early access before public launch</div>
+          <div class="pi2"><div class="ck">&#10003;</div>Shape the product with your feedback</div>
+          <div class="pi2"><div class="ck">&#10003;</div>No spam &mdash; just product updates and beta invites</div>
+        </div>
+      </div>
+      <div class="rev" style="transition-delay:.1s">
+        <div class="fcard">
+          <p class="ftitle">Join the Oratly beta</p>
+
+          <!--
+          GOOGLE FORMS SETUP
+          ===================
+          1. Create a Google Form with these exact fields
+          2. Go to the form's 3-dot menu > "Get pre-filled link"
+          3. Fill every field with placeholder text, click "Get Link"
+          4. Inspect that URL -- each field becomes entry.XXXXXXXXXX
+          5. Replace the action URL below with your form's /formResponse URL:
+             https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
+          6. Replace each entry.XXXXXXXXXX name attribute with real entry IDs
+          -->
+          <form
+            id="oform"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScaU7Af4g3KiOL4DvBOosWjXdp2-Rpswhv-KyCryOoukDoqOg/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="window.formSubmitted=true;"
+          >
+            <div class="fr2">
+              <div>
+                <label for="fn">Full name</label>
+                <input type="text" id="fn" name="entry.404719354" placeholder="Jane Smith" required />
+              </div>
+              <div>
+                <label for="fe">Email address</label>
+                <input type="email" id="fe" name="entry.806369753" placeholder="jane@company.com" required />
+              </div>
+            </div>
+            <div class="fr2">
+              <div>
+                <label for="fr">What best describes you?</label>
+                <select id="fr" name="entry.1957862129" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>Early-career professional</option>
+                  <option>Mid-career professional</option>
+                  <option>Manager / team lead</option>
+                  <option>Job seeker</option>
+                  <option>Founder / entrepreneur</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="fh">Hardest speaking situation?</label>
+                <select id="fh" name="entry.124551600" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>Meetings</option>
+                  <option>Presentations</option>
+                  <option>Interviews</option>
+                  <option>Networking</option>
+                  <option>Thinking on the spot</option>
+                  <option>Difficult conversations</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="fr">
+              <label for="fru">What frustrates you most about how you speak at work?</label>
+              <textarea id="fru" name="entry.703656523" placeholder="I often lose my train of thought when answering questions&hellip;"></textarea>
+            </div>
+            <div class="fr">
+              <label>Would you try the beta and share feedback?</label>
+              <div class="rg">
+                <div class="ro"><input type="radio" id="by" name="entry.1254736288" value="Yes" /><label for="by">Yes</label></div>
+                <div class="ro"><input type="radio" id="bn" name="entry.1254736288" value="No" /><label for="bn">No</label></div>
+                <div class="ro"><input type="radio" id="bm" name="entry.1254736288" value="Maybe" /><label for="bm">Maybe</label></div>
+              </div>
+            </div>
+            <div class="fr">
+              <label>Open to a short feedback call?</label>
+              <div class="rg">
+                <div class="ro"><input type="radio" id="cy" name="entry.818364037" value="Yes" /><label for="cy">Yes</label></div>
+                <div class="ro"><input type="radio" id="cn" name="entry.818364037" value="No" /><label for="cn">No</label></div>
+                <div class="ro"><input type="radio" id="cm" name="entry.818364037" value="Maybe" /><label for="cm">Maybe</label></div>
+              </div>
+            </div>
+            <button type="submit" class="btn bp bsub">Join Waitlist &rarr;</button>
+            <p class="mc">No spam. Just early access, product updates, and beta invites.</p>
+          </form>
+          <div id="fs">
+            <span class="si">&#127881;</span>
+            <h3>You&rsquo;re on the list.</h3>
+            <p>We&rsquo;ll be in touch with early access and updates. Thanks for joining.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="fl">
+      <div class="rev">
+        <span class="lbl">FAQ</span>
+        <h2>Common questions.</h2>
+      </div>
+      <div class="flist rev" style="transition-delay:.1s">
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">Who is Oratly for?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Oratly is for professionals who want to improve how they speak in meetings, presentations, interviews, and other high-pressure work situations.</p></div>
+        </div>
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">Why not just use my phone camera?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Recording one attempt is not the same as having a practice system. Oratly is built to help you practice consistently and improve over time &mdash; with guidance, feedback, and accountability built in.</p></div>
+        </div>
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">Do I need to be good at public speaking already?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">No. Oratly is meant for people who want to build skill and confidence through practice &mdash; not just those who are already polished.</p></div>
+        </div>
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">Is practice private?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Yes. Oratly is designed around private rehearsal first, with optional accountability and feedback features you can choose to use.</p></div>
+        </div>
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">What kind of practice does Oratly include?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Short speaking drills, impromptu prompts, speech warmups, and other guided practice formats &mdash; all designed to fit into a real workday.</p></div>
+        </div>
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">What kind of feedback does Oratly provide?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Oratly tracks concrete metrics like transcript review, word count, filler words, and session duration &mdash; the kind of feedback that makes practice more useful than simple playback.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fti">
+      <a href="#" class="logo">Orat<span>.</span>ly</a>
+      <p class="fc2">&copy; 2025 Oratly. Built for professionals who want to speak better.</p>
+      <a href="#signup" class="btn bp" style="font-size:13px;padding:12px 22px;">Join Waitlist</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function tFaq(btn){
+    const item=btn.closest('.fi2'),isOpen=item.classList.contains('open');
+    document.querySelectorAll('.fi2.open').forEach(el=>el.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+  window.formSubmitted=false;
+  function showSuccess(){
+    document.getElementById('oform').style.display='none';
+    document.getElementById('fs').style.display='block';
+  }
+  document.getElementById('oform').addEventListener('submit',function(){setTimeout(showSuccess,2000);});
+</script>
+</body>
+</html>
