@@ -128,7 +128,7 @@
 <nav>
   <div class="wrap">
     <div class="ni">
-      <a href="#" class="logo">Orat<span>.</span>ly</a>
+      <a href="#"><img src="logo.png" alt="Oratly" style="height:36px;width:auto;display:block;" /></a>
       <div class="nc">
         <a href="#signup" class="btn bg">Join Waitlist</a>
         <a href="#how" class="btn bp">How It Works</a>
@@ -335,10 +335,17 @@
             <div class="fr">
               <label>Open to a short feedback call?</label>
               <div class="rg">
-                <div class="ro"><input type="radio" id="cy" name="entry.818364037" value="Yes" /><label for="cy">Yes</label></div>
-                <div class="ro"><input type="radio" id="cn" name="entry.818364037" value="No" /><label for="cn">No</label></div>
-                <div class="ro"><input type="radio" id="cm" name="entry.818364037" value="Maybe" /><label for="cm">Maybe</label></div>
+                <div class="ro"><input type="radio" id="cy" name="entry.818364037" value="Yes" onclick="showPhone(true)" /><label for="cy">Yes</label></div>
+                <div class="ro"><input type="radio" id="cn" name="entry.818364037" value="No" onclick="showPhone(false)" /><label for="cn">No</label></div>
+                <div class="ro"><input type="radio" id="cm" name="entry.818364037" value="Maybe" onclick="showPhone(false)" /><label for="cm">Maybe</label></div>
               </div>
+            </div>
+            <div class="fr" id="phone-field" style="display:none;">
+              <label for="fphone">Best phone number to reach you</label>
+              <!-- ADD a "Phone number" short-answer field to your Google Form,
+                   get its entry ID via the pre-filled link trick, and replace
+                   entry.9999999999 below with the real ID -->
+              <input type="tel" id="fphone" name="entry.439820684" placeholder="+1 (555) 000-0000" />
             </div>
             <button type="submit" class="btn bp bsub">Join Waitlist &rarr;</button>
             <p class="mc">No spam. Just early access, product updates, and beta invites.</p>
@@ -396,7 +403,7 @@
 <footer>
   <div class="wrap">
     <div class="fti">
-      <a href="#" class="logo">Orat<span>.</span>ly</a>
+      <a href="#"><img src="logo.png" alt="Oratly" style="height:32px;width:auto;display:block;" /></a>
       <p class="fc2">&copy; 2025 Oratly. Built for professionals who want to speak better.</p>
       <a href="#signup" class="btn bp" style="font-size:13px;padding:12px 22px;">Join Waitlist</a>
     </div>
@@ -404,6 +411,11 @@
 </footer>
 
 <script>
+  function showPhone(show){
+    const f=document.getElementById('phone-field');
+    f.style.display=show?'block':'none';
+    if(!show)document.getElementById('fphone').value='';
+  }
   function tFaq(btn){
     const item=btn.closest('.fi2'),isOpen=item.classList.contains('open');
     document.querySelectorAll('.fi2.open').forEach(el=>el.classList.remove('open'));
