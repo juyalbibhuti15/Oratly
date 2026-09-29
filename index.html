@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.formSubmitted){showSuccess();}"></iframe>
   <style>
     :root{--bg:#0C0C0B;--bg2:#141412;--bg3:#1C1C19;--cream:#F2EDE4;--muted:#A89E90;--accent:#FF5533;--awarm:#FF7A52;--gold:#F0C060;--line:rgba(242,237,228,0.1);--r:4px;--fh:'Bricolage Grotesque',sans-serif;--fb:'Lora',Georgia,serif;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
@@ -23,6 +22,10 @@
     .ni{display:flex;align-items:center;justify-content:space-between;}
     .logo{font-family:var(--fh);font-weight:800;font-size:22px;letter-spacing:-.02em;}.logo span{color:var(--accent);}
     .nc{display:flex;gap:12px;align-items:center;}
+    /* 2026-09-29: Official App Store download actions. */
+    .store-link{display:inline-block;padding:12px;line-height:0;border-radius:10px;}
+    .store-link:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+    .store-badge{width:auto;height:48px;}
     #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 80px;position:relative;overflow:hidden;}
     .hbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(255,85,51,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(240,192,96,.06) 0%,transparent 60%);}
     .hgrid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);}
@@ -67,34 +70,14 @@
     .fc:hover{background:var(--bg3);}.fc:hover::after{height:100%;}
     .fi{font-size:28px;margin-bottom:16px;display:block;}
     .fc h3{font-size:17px;margin-bottom:10px;}.fc p{font-size:14px;color:var(--muted);line-height:1.65;}
-    #signup{background:var(--bg);position:relative;overflow:hidden;}
+    /* 2026-09-29: Replaced the prelaunch form with a compact download section. */
+    #signup{background:var(--bg);position:relative;overflow:hidden;text-align:center;}
     #signup::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,85,51,.08) 0%,transparent 70%);pointer-events:none;}
-    .sl2{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
-    .sleft h2{margin-bottom:20px;}.sleft p{color:var(--muted);font-size:16px;margin-bottom:40px;}
-    .proof{display:flex;flex-direction:column;gap:12px;}
-    .pi2{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:13px;color:var(--muted);}
-    .ck{width:18px;height:18px;border-radius:50%;background:rgba(255,85,51,.15);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--accent);flex-shrink:0;}
-    .fcard{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:44px 40px;}
-    .ftitle{font-family:var(--fh);font-size:20px;font-weight:700;margin-bottom:32px;}
-    .fr{margin-bottom:20px;}
-    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
-    label{display:block;font-family:var(--fh);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-    input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--bg3);border:1px solid rgba(242,237,228,.12);border-radius:var(--r);padding:13px 16px;font-family:var(--fb);font-size:15px;color:var(--cream);outline:none;transition:border-color .2s;-webkit-appearance:none;}
-    input::placeholder,textarea::placeholder{color:rgba(168,158,144,.5);}
-    input:focus,select:focus,textarea:focus{border-color:var(--accent);}
-    select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A89E90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;}
-    select option{background:#1C1C19;}
-    textarea{resize:vertical;min-height:90px;line-height:1.6;}
-    .rg{display:flex;gap:10px;}.ro{flex:1;}
-    .ro input[type=radio]{display:none;}
-    .ro label{display:flex;align-items:center;justify-content:center;width:100%;padding:11px 16px;background:var(--bg3);border:1px solid rgba(242,237,228,.12);border-radius:var(--r);cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--muted);transition:all .2s;margin-bottom:0;}
-    .ro input:checked+label{border-color:var(--accent);color:var(--accent);background:rgba(255,85,51,.08);}
-    .ro label:hover{border-color:rgba(242,237,228,.3);}
-    .bsub{width:100%;padding:16px;font-size:15px;letter-spacing:.06em;border-radius:var(--r);margin-top:8px;justify-content:center;}
-    .mc{text-align:center;font-family:var(--fh);font-size:11px;color:var(--muted);margin-top:14px;letter-spacing:.04em;}
-    #fs{display:none;text-align:center;padding:60px 20px;}
-    #fs .si{font-size:48px;margin-bottom:20px;display:block;}
-    #fs h3{font-size:24px;margin-bottom:12px;}#fs p{color:var(--muted);font-size:15px;}
+    .download-content{position:relative;max-width:760px;margin:0 auto;}
+    .download-content h2{margin-bottom:20px;}
+    .download-content>p{max-width:620px;margin:0 auto 30px;color:var(--muted);font-size:16px;}
+    .download-content .store-badge{height:56px;}
+    .download-note{display:block;margin-top:14px;font-family:var(--fh);font-size:12px;color:var(--muted);letter-spacing:.03em;}
     #faq{background:var(--bg2);}
     .fl{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
     .flist{display:flex;flex-direction:column;}
@@ -112,15 +95,24 @@
     .rev{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
     .rev.vis{opacity:1;transform:translateY(0);}
     @media(max-width:900px){
-      .g2,.sl2,.fl{grid-template-columns:1fr;gap:48px;}
+      .g2,.fl{grid-template-columns:1fr;gap:48px;}
       .steps{grid-template-columns:1fr 1fr;}.fg{grid-template-columns:1fr 1fr;}
       .fti{flex-direction:column;gap:16px;text-align:center;}.fti .nc{flex-wrap:wrap;justify-content:center;}
     }
     @media(max-width:600px){
       h1{font-size:40px;}.steps,.fg{grid-template-columns:1fr;}
-      .fcard{padding:28px 20px;}.fr2{grid-template-columns:1fr;}
-      .site-logo{height:min(42px,7.5vw)!important;max-width:none;}
-      nav .nc > .bg:first-child{display:none;}
+      .site-logo{height:min(36px,8vw)!important;max-width:none;}
+      nav{padding:14px 0;}
+      nav .wrap{padding:0 16px;}
+      nav .ni{align-items:flex-start;gap:10px;}
+      nav .nc{max-width:230px;flex-wrap:wrap;justify-content:flex-end;gap:6px;}
+      nav .btn{font-size:11px;padding:10px 12px;white-space:nowrap;}
+      .store-badge{height:44px;}
+      .download-content .store-badge{height:48px;}
+    }
+    @media(max-width:380px){
+      nav .ni{gap:8px;}
+      nav .nc{max-width:180px;}
     }
   </style>
 </head>
@@ -131,9 +123,10 @@
     <div class="ni">
       <a href="#"><img class="site-logo" src="logo-web.png" alt="Oratly" style="height:48px;width:auto;display:block;" /></a>
       <div class="nc">
-        <a href="#signup" class="btn bg">Launch Updates</a>
-        <a href="/support/" class="btn bg">Support</a>
-        <a href="#how" class="btn bp">How It Works</a>
+        <!-- 2026-09-29: The App Store download is now the primary navigation action. -->
+        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp">Download for iPhone</a>
+        <a href="/support/" class="btn bg nav-support">Support</a>
+        <a href="#how" class="btn bg nav-how">How It Works</a>
       </div>
     </div>
   </div>
@@ -145,11 +138,12 @@
   <div class="hgrid"></div>
   <div class="wrap">
     <div class="hc">
-      <div class="hey"><div class="hdot"></div><span class="lbl">App Store Launch Coming Soon</span></div>
+      <div class="hey"><div class="hdot"></div><span class="lbl">Now available on the App Store</span></div>
       <h1>Practice before<br>the <em>real</em> moment.</h1>
       <p class="hsub">Oratly helps professionals practice real workplace conversations, think on their feet, and speak more clearly under pressure. Record privately, review focused feedback, and practice again before it matters.</p>
       <div class="ha">
-        <a href="#signup" class="btn bp" style="font-size:15px;padding:16px 32px;">Get Launch Updates</a>
+        <!-- 2026-09-29: Official Apple-provided App Store badge. -->
+        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" alt="Download Oratly on the App Store" /></a>
         <a href="#how" class="btn bg" style="font-size:15px;padding:16px 32px;">See How It Works</a>
       </div>
       <p class="ht">For professionals who want to sound clearer, more confident, and more prepared at work.</p>
@@ -249,116 +243,15 @@
   </div>
 </section>
 
-<!-- SIGNUP -->
+<!-- DOWNLOAD — updated 2026-09-29; #signup retained for existing links -->
 <section id="signup">
   <div class="wrap">
-    <div class="sl2">
-      <div class="sleft rev">
-        <span class="lbl">Launch Updates</span>
-        <h2>Be first to know when Oratly launches.</h2>
-        <p>Oratly is preparing for App Store launch. Join for launch updates and, if you choose, opportunities to share product feedback.</p>
-        <div class="proof">
-          <div class="pi2"><div class="ck">&#10003;</div>App Store launch updates</div>
-          <div class="pi2"><div class="ck">&#10003;</div>Opportunities to share product feedback</div>
-          <div class="pi2"><div class="ck">&#10003;</div>No spam, just Oratly updates</div>
-        </div>
-      </div>
-      <div class="rev" style="transition-delay:.1s">
-        <div class="fcard">
-          <p class="ftitle">Stay in the loop</p>
-
-          <!--
-          GOOGLE FORMS SETUP
-          ===================
-          1. Create a Google Form with these exact fields
-          2. Go to the form's 3-dot menu > "Get pre-filled link"
-          3. Fill every field with placeholder text, click "Get Link"
-          4. Inspect that URL -- each field becomes entry.XXXXXXXXXX
-          5. Replace the action URL below with your form's /formResponse URL:
-             https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
-          6. Replace each entry.XXXXXXXXXX name attribute with real entry IDs
-          -->
-          <form
-            id="oform"
-            action="https://docs.google.com/forms/d/e/1FAIpQLScaU7Af4g3KiOL4DvBOosWjXdp2-Rpswhv-KyCryOoukDoqOg/formResponse"
-            method="POST"
-            target="hidden_iframe"
-            onsubmit="window.formSubmitted=true;"
-          >
-            <div class="fr2">
-              <div>
-                <label for="fn">Full name</label>
-                <input type="text" id="fn" name="entry.404719354" placeholder="Jane Smith" required />
-              </div>
-              <div>
-                <label for="fe">Email address</label>
-                <input type="email" id="fe" name="entry.806369753" placeholder="jane@company.com" required />
-              </div>
-            </div>
-            <div class="fr2">
-              <div>
-                <label for="fr">What best describes you?</label>
-                <select id="fr" name="entry.1957862129" required>
-                  <option value="" disabled selected>Select one</option>
-                  <option>Early-career professional</option>
-                  <option>Mid-career professional</option>
-                  <option>Manager / team lead</option>
-                  <option>Job seeker</option>
-                  <option>Founder / entrepreneur</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label for="fh">Hardest speaking situation?</label>
-                <select id="fh" name="entry.124551600" required>
-                  <option value="" disabled selected>Select one</option>
-                  <option>Meetings</option>
-                  <option>Presentations</option>
-                  <option>Interviews</option>
-                  <option>Networking</option>
-                  <option>Thinking on the spot</option>
-                  <option>Difficult conversations</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="fr">
-              <label for="fru">What frustrates you most about how you speak at work?</label>
-              <textarea id="fru" name="entry.703656523" placeholder="I often lose my train of thought when answering questions&hellip;"></textarea>
-            </div>
-            <div class="fr">
-              <label>Would you try Oratly and share feedback?</label>
-              <div class="rg">
-                <div class="ro"><input type="radio" id="by" name="entry.1254736288" value="Yes" /><label for="by">Yes</label></div>
-                <div class="ro"><input type="radio" id="bn" name="entry.1254736288" value="No" /><label for="bn">No</label></div>
-                <div class="ro"><input type="radio" id="bm" name="entry.1254736288" value="Maybe" /><label for="bm">Maybe</label></div>
-              </div>
-            </div>
-            <div class="fr">
-              <label>Open to a short feedback call?</label>
-              <div class="rg">
-                <div class="ro"><input type="radio" id="cy" name="entry.818364037" value="Yes" onclick="showPhone(true)" /><label for="cy">Yes</label></div>
-                <div class="ro"><input type="radio" id="cn" name="entry.818364037" value="No" onclick="showPhone(false)" /><label for="cn">No</label></div>
-                <div class="ro"><input type="radio" id="cm" name="entry.818364037" value="Maybe" onclick="showPhone(false)" /><label for="cm">Maybe</label></div>
-              </div>
-            </div>
-            <div class="fr" id="phone-field" style="display:none;">
-              <label for="fphone">Best phone number to reach you</label>
-              <!-- ADD a "Phone number" short-answer field to your Google Form,
-                   get its entry ID via the pre-filled link trick, and replace
-                   entry.9999999999 below with the real ID -->
-              <input type="tel" id="fphone" name="entry.439820684" placeholder="+1 (555) 000-0000" />
-            </div>
-            <button type="submit" class="btn bp bsub">Get Launch Updates &rarr;</button>
-            <p class="mc">No spam. Just Oratly launch and product updates.</p>
-          </form>
-          <div id="fs">
-            <span class="si">&#127881;</span>
-            <h3>You&rsquo;re on the list.</h3>
-            <p>We&rsquo;ll be in touch with launch updates. Thanks for joining.</p>
-          </div>
-        </div>
-      </div>
+    <div class="download-content rev">
+      <span class="lbl">Download Oratly</span>
+      <h2>Your next conversation deserves a practice run.</h2>
+      <p>Practice a workplace moment, review your feedback, and try again before it matters.</p>
+      <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" alt="Download Oratly on the App Store" /></a>
+      <span class="download-note">Available for iPhone.</span>
     </div>
   </div>
 </section>
@@ -372,6 +265,11 @@
         <h2>Common questions.</h2>
       </div>
       <div class="flist rev" style="transition-delay:.1s">
+        <!-- 2026-09-29: Added current download availability. -->
+        <div class="fi2">
+          <button class="fq" onclick="tFaq(this)">Where can I download Oratly?<span class="fch">+</span></button>
+          <div class="fa"><p class="fai">Oratly is available for iPhone on the <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" style="color:var(--cream);text-decoration:underline;text-underline-offset:3px;">App Store</a>.</p></div>
+        </div>
         <div class="fi2">
           <button class="fq" onclick="tFaq(this)">Who is Oratly for?<span class="fch">+</span></button>
           <div class="fa"><p class="fai">Oratly is for professionals who want to improve how they speak in meetings, presentations, interviews, and other high-pressure work situations.</p></div>
@@ -407,17 +305,12 @@
     <div class="fti">
       <a href="#"><img src="logo-web.png" alt="Oratly" style="height:36px;width:auto;display:block;" /></a>
       <p class="fc2">&copy; 2026 Oratly. Built for professionals who want to speak better.</p>
-      <div class="nc"><a href="/support/" class="btn bg" style="font-size:13px;padding:12px 22px;">Support</a><a href="/terms/" class="btn bg" style="font-size:13px;padding:12px 22px;">Terms</a><a href="/privacy/" class="btn bg" style="font-size:13px;padding:12px 22px;">Privacy</a><a href="#signup" class="btn bp" style="font-size:13px;padding:12px 22px;">Launch Updates</a></div>
+      <div class="nc"><a href="/support/" class="btn bg" style="font-size:13px;padding:12px 22px;">Support</a><a href="/terms/" class="btn bg" style="font-size:13px;padding:12px 22px;">Terms</a><a href="/privacy/" class="btn bg" style="font-size:13px;padding:12px 22px;">Privacy</a><a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp" style="font-size:13px;padding:12px 22px;">Download for iPhone</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-  function showPhone(show){
-    const f=document.getElementById('phone-field');
-    f.style.display=show?'block':'none';
-    if(!show)document.getElementById('fphone').value='';
-  }
   function tFaq(btn){
     const item=btn.closest('.fi2'),isOpen=item.classList.contains('open');
     document.querySelectorAll('.fi2.open').forEach(el=>el.classList.remove('open'));
@@ -427,12 +320,6 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
   },{threshold:0.1});
   document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
-  window.formSubmitted=false;
-  function showSuccess(){
-    document.getElementById('oform').style.display='none';
-    document.getElementById('fs').style.display='block';
-  }
-  document.getElementById('oform').addEventListener('submit',function(){setTimeout(showSuccess,2000);});
 </script>
 </body>
 </html>
