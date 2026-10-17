@@ -3,8 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oratly &mdash; Practice Before the Real Moment</title>
-  <meta name="description" content="Oratly helps young professionals improve how they speak in meetings, presentations, and high-pressure conversations." />
+  <!-- 2026-10-17: Workplace-focused product and sharing metadata. -->
+  <title>Workplace Communication Coach App | Oratly</title>
+  <meta name="description" content="Practice workplace conversations with Oratly. Get AI feedback on directness, structure, and conciseness before your next meeting." />
+  <!-- 2026-10-17: Canonical public URL, including index.html aliases. -->
+  <link rel="canonical" href="https://oratly.io/" />
+  <!-- 2026-10-17: Square symbol-only favicon preserves the header brand proportions. -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Oratly" />
+  <meta property="og:url" content="https://oratly.io/" />
+  <meta property="og:title" content="Workplace Communication Coach App | Oratly" />
+  <meta property="og:description" content="Practice workplace conversations with Oratly. Get AI feedback on directness, structure, and conciseness before your next meeting." />
+  <meta property="og:image" content="https://oratly.io/oratly-social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Oratly. Practice workplace conversations before the real moment. AI feedback on directness, structure, and conciseness." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Workplace Communication Coach App | Oratly" />
+  <meta name="twitter:description" content="Practice workplace conversations with Oratly. Get AI feedback on directness, structure, and conciseness before your next meeting." />
+  <meta name="twitter:image" content="https://oratly.io/oratly-social.png" />
+  <meta name="twitter:image:alt" content="Oratly workplace conversation practice and AI feedback." />
+  <!-- 2026-10-17: Verified identity facts; no invented offer or rating. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://oratly.io/#website",
+      "name": "Oratly",
+      "url": "https://oratly.io/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://oratly.io/#app",
+      "name": "Oratly",
+      "url": "https://oratly.io/",
+      "operatingSystem": "iOS",
+      "downloadUrl": "https://apps.apple.com/us/app/oratly-communication-coach/id6761913867",
+      "description": "Practice workplace conversations with Oratly. Get AI feedback on directness, structure, and conciseness before your next meeting.",
+      "featureList": [
+        "Workplace conversation practice",
+        "Think on Your Feet prompts",
+        "Feedback on directness, structure, and conciseness"
+      ]
+    }
+  ]
+}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -85,14 +132,20 @@
     .fq{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0;font-family:var(--fh);font-size:16px;font-weight:600;color:var(--cream);text-align:left;}
     .fq:hover{color:var(--accent);}
     .fch{flex-shrink:0;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;transition:transform .25s,background .2s;}
-    .fi2.open .fch{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);}
-    .fa{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+    .fi2[open] .fch{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);}
+    /* 2026-10-17: Native disclosures work with or without scripts. */
+    .fq{list-style:none;}.fq::-webkit-details-marker{display:none;}
+    .fa{overflow:visible;}
     .fai{padding-bottom:24px;font-size:15px;color:var(--muted);line-height:1.75;}
-    .fi2.open .fa{max-height:300px;}
+
     footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 0;}
     .fti{display:flex;align-items:center;justify-content:space-between;}
     .fc2{font-family:var(--fh);font-size:12px;color:var(--muted);letter-spacing:.04em;}
-    .rev{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+    /* 2026-10-17: Content is visible by default; animate only on intersection. */
+    .rev{opacity:1;transform:none;}
+    @keyframes reveal{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+    .rev.vis{animation:reveal .65s ease both;}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.rev.vis,.hdot,.sl{animation:none;}.fch{transition:none;}}
     .rev.vis{opacity:1;transform:translateY(0);}
     @media(max-width:900px){
       .g2,.fl{grid-template-columns:1fr;gap:48px;}
@@ -100,6 +153,10 @@
       .fti{flex-direction:column;gap:16px;text-align:center;}.fti .nc{flex-wrap:wrap;justify-content:center;}
     }
     @media(max-width:600px){
+      /* 2026-10-17: Clear the wrapped mobile download navigation. */
+      #hero{padding-top:190px;}
+      /* 2026-10-17: Keep the How It Works label below the wrapped fixed header. */
+      #how{scroll-margin-top:80px;}
       h1{font-size:40px;}.steps,.fg{grid-template-columns:1fr;}
       .site-logo{height:min(36px,8vw)!important;max-width:none;}
       nav{padding:14px 0;}
@@ -121,10 +178,11 @@
 <nav>
   <div class="wrap">
     <div class="ni">
-      <a href="#"><img class="site-logo" src="logo-web.png" alt="Oratly" style="height:48px;width:auto;display:block;" /></a>
+      <!-- 2026-10-17: Sized brand derivative reserves logo space. -->
+      <a href="#"><img class="site-logo" src="logo-web-small.png" width="292" height="96" alt="Oratly" style="height:48px;width:auto;display:block;" /></a>
       <div class="nc">
         <!-- 2026-09-29: The App Store download is now the primary navigation action. -->
-        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp">Download for iPhone</a>
+        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp">Download on the App Store</a>
         <a href="/support/" class="btn bg nav-support">Support</a>
         <a href="#how" class="btn bg nav-how">How It Works</a>
       </div>
@@ -138,12 +196,13 @@
   <div class="hgrid"></div>
   <div class="wrap">
     <div class="hc">
-      <div class="hey"><div class="hdot"></div><span class="lbl">Now available on the App Store</span></div>
-      <h1>Practice before<br>the <em>real</em> moment.</h1>
-      <p class="hsub">Oratly helps professionals practice real workplace conversations, think on their feet, and speak more clearly under pressure. Record privately, review focused feedback, and practice again before it matters.</p>
+      <div class="hey"><div class="hdot"></div><span class="lbl">Practice before the real moment</span></div>
+      <!-- 2026-10-17: Platform-neutral workplace positioning. -->
+      <h1>Practice workplace conversations before the <em>real</em> moment.</h1>
+      <p class="hsub">Oratly is a communication coach app. Rehearse meetings, presentations, and unexpected questions, then get AI feedback on directness, structure, and conciseness.</p>
       <div class="ha">
         <!-- 2026-09-29: Official Apple-provided App Store badge. -->
-        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" alt="Download Oratly on the App Store" /></a>
+        <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" width="119.66407" height="40" alt="Download Oratly on the App Store" /></a>
         <a href="#how" class="btn bg" style="font-size:15px;padding:16px 32px;">See How It Works</a>
       </div>
       <p class="ht">For professionals who want to sound clearer, more confident, and more prepared at work.</p>
@@ -250,8 +309,8 @@
       <span class="lbl">Download Oratly</span>
       <h2>Your next conversation deserves a practice run.</h2>
       <p>Practice a workplace moment, review your feedback, and try again before it matters.</p>
-      <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" alt="Download Oratly on the App Store" /></a>
-      <span class="download-note">Available for iPhone.</span>
+      <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="store-link"><img class="store-badge" src="download-on-the-app-store.svg" width="119.66407" height="40" alt="Download Oratly on the App Store" /></a>
+      <span class="download-note">Available on the App Store. Android version currently in testing.</span>
     </div>
   </div>
 </section>
@@ -266,34 +325,34 @@
       </div>
       <div class="flist rev" style="transition-delay:.1s">
         <!-- 2026-09-29: Added current download availability. -->
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">Where can I download Oratly?<span class="fch">+</span></button>
-          <div class="fa"><p class="fai">Oratly is available for iPhone on the <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" style="color:var(--cream);text-decoration:underline;text-underline-offset:3px;">App Store</a>.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">Who is Oratly for?<span class="fch">+</span></button>
+        <details class="fi2">
+          <summary class="fq">Where can I download Oratly?<span class="fch" aria-hidden="true">+</span></summary>
+          <div class="fa"><p class="fai">Oratly is available on the <a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" style="color:var(--cream);text-decoration:underline;text-underline-offset:3px;">App Store</a>. Android version currently in testing.</p></div>
+        </details>
+        <details class="fi2">
+          <summary class="fq">Who is Oratly for?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">Oratly is for professionals who want to improve how they speak in meetings, presentations, interviews, and other high-pressure work situations.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">Why not just use my phone camera?<span class="fch">+</span></button>
+        </details>
+        <details class="fi2">
+          <summary class="fq">Why not just use my phone camera?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">A phone can record you, but it does not provide structured workplace prompts or communication feedback. Oratly gives you a repeatable practice flow before the real moment.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">Do I need to be good at public speaking already?<span class="fch">+</span></button>
+        </details>
+        <details class="fi2">
+          <summary class="fq">Do I need to be good at public speaking already?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">No. Oratly is meant for people who want to build skill and confidence through practice &mdash; not just those who are already polished.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">Is practice private?<span class="fch">+</span></button>
+        </details>
+        <details class="fi2">
+          <summary class="fq">Is practice private?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">Yes. Oratly is designed for private practice so you can rehearse without coworkers watching. Your recording is used to generate your practice feedback.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">What kind of practice does Oratly include?<span class="fch">+</span></button>
+        </details>
+        <details class="fi2">
+          <summary class="fq">What kind of practice does Oratly include?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">Real workplace scenarios, Think on Your Feet prompts, and short speaking exercises designed to help you practice before high-pressure conversations.</p></div>
-        </div>
-        <div class="fi2">
-          <button class="fq" onclick="tFaq(this)">What kind of feedback does Oratly provide?<span class="fch">+</span></button>
+        </details>
+        <details class="fi2">
+          <summary class="fq">What kind of feedback does Oratly provide?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">Oratly reviews Directness, Structure, and Conciseness and shows what worked, what could improve, and an alternative way to start your response.</p></div>
-        </div>
+        </details>
       </div>
     </div>
   </div>
@@ -303,23 +362,26 @@
 <footer>
   <div class="wrap">
     <div class="fti">
-      <a href="#"><img src="logo-web.png" alt="Oratly" style="height:36px;width:auto;display:block;" /></a>
+      <!-- 2026-10-17: Sized brand derivative reserves logo space. -->
+      <a href="#"><img src="logo-web-small.png" width="292" height="96" alt="Oratly" style="height:36px;width:auto;display:block;" /></a>
       <p class="fc2">&copy; 2026 Oratly. Built for professionals who want to speak better.</p>
-      <div class="nc"><a href="/support/" class="btn bg" style="font-size:13px;padding:12px 22px;">Support</a><a href="/terms/" class="btn bg" style="font-size:13px;padding:12px 22px;">Terms</a><a href="/privacy/" class="btn bg" style="font-size:13px;padding:12px 22px;">Privacy</a><a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp" style="font-size:13px;padding:12px 22px;">Download for iPhone</a></div>
+      <div class="nc"><a href="/support/" class="btn bg" style="font-size:13px;padding:12px 22px;">Support</a><a href="/terms/" class="btn bg" style="font-size:13px;padding:12px 22px;">Terms</a><a href="/privacy/" class="btn bg" style="font-size:13px;padding:12px 22px;">Privacy</a><a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp" style="font-size:13px;padding:12px 22px;">Download on the App Store</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-  function tFaq(btn){
-    const item=btn.closest('.fi2'),isOpen=item.classList.contains('open');
-    document.querySelectorAll('.fi2.open').forEach(el=>el.classList.remove('open'));
-    if(!isOpen)item.classList.add('open');
+  // 2026-10-17: Optional animation never gates content or native FAQs.
+  try{
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const obs=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+      },{threshold:0.1});
+      document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+    }
+  }catch(error){
+    document.querySelectorAll('.rev').forEach(el=>el.classList.remove('vis'));
   }
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
-  },{threshold:0.1});
-  document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
