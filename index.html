@@ -25,6 +25,7 @@
   <meta name="twitter:image" content="https://oratly.io/oratly-social.png" />
   <meta name="twitter:image:alt" content="Oratly workplace conversation practice and AI feedback." />
   <!-- 2026-10-17: Verified identity facts; no invented offer or rating. -->
+  <!-- 2026-10-17: Connect the website and app to the visible developer identity. -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,7 +34,10 @@
       "@type": "WebSite",
       "@id": "https://oratly.io/#website",
       "name": "Oratly",
-      "url": "https://oratly.io/"
+      "url": "https://oratly.io/",
+      "publisher": {
+        "@id": "https://oratly.io/#developer"
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -47,7 +51,15 @@
         "Workplace conversation practice",
         "Think on Your Feet prompts",
         "Feedback on directness, structure, and conciseness"
-      ]
+      ],
+      "author": {
+        "@id": "https://oratly.io/#developer"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oratly.io/#developer",
+      "name": "Bibhuti Juyal"
     }
   ]
 }
@@ -138,6 +150,9 @@
     .fa{overflow:visible;}
     .fai{padding-bottom:24px;font-size:15px;color:var(--muted);line-height:1.75;}
 
+    /* 2026-10-17: A practical guide extends the existing workplace content. */
+    #practice-guide{background:var(--bg3);}
+    #practice-guide .btn:focus-visible{outline:2px solid var(--cream);outline-offset:4px;}
     footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 0;}
     .fti{display:flex;align-items:center;justify-content:space-between;}
     .fc2{font-family:var(--fh);font-size:12px;color:var(--muted);letter-spacing:.04em;}
@@ -302,6 +317,22 @@
   </div>
 </section>
 
+<!-- 2026-10-17: First workplace guide, linked from the homepage. -->
+<section id="practice-guide" aria-labelledby="practice-guide-title">
+  <div class="wrap">
+    <div class="g2">
+      <div class="rev">
+        <span class="lbl">Workplace practice guide</span>
+        <h2 id="practice-guide-title">When your manager puts you on the spot.</h2>
+      </div>
+      <div class="pi rev">
+        <p>Start with a direct answer, add the reason that matters, and finish with a useful next step. See a worked example and try a short practice exercise.</p>
+        <a href="/guides/answer-unexpected-questions-at-work/" class="btn bg">Read the practice guide &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- DOWNLOAD — updated 2026-09-29; #signup retained for existing links -->
 <section id="signup">
   <div class="wrap">
@@ -324,6 +355,11 @@
         <h2>Common questions.</h2>
       </div>
       <div class="flist rev" style="transition-delay:.1s">
+        <!-- 2026-10-17: A direct product definition complements the approved hero. -->
+        <details class="fi2">
+          <summary class="fq">What is Oratly?<span class="fch" aria-hidden="true">+</span></summary>
+          <div class="fa"><p class="fai">Oratly is a workplace communication practice app for adults. Choose a realistic work scenario or a Think on Your Feet prompt, record your response, and review AI feedback on directness, structure, and conciseness before trying again.</p></div>
+        </details>
         <!-- 2026-09-29: Added current download availability. -->
         <details class="fi2">
           <summary class="fq">Where can I download Oratly?<span class="fch" aria-hidden="true">+</span></summary>
@@ -341,9 +377,10 @@
           <summary class="fq">Do I need to be good at public speaking already?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">No. Oratly is meant for people who want to build skill and confidence through practice &mdash; not just those who are already polished.</p></div>
         </details>
+        <!-- 2026-10-17: Explain private rehearsal consistently with the existing privacy policy. -->
         <details class="fi2">
           <summary class="fq">Is practice private?<span class="fch" aria-hidden="true">+</span></summary>
-          <div class="fa"><p class="fai">Yes. Oratly is designed for private practice so you can rehearse without coworkers watching. Your recording is used to generate your practice feedback.</p></div>
+          <div class="fa"><p class="fai">Oratly lets you rehearse without coworkers watching. Submitted recordings are processed to generate feedback and may be stored with your practice history. Read the <a href="/privacy/" style="color:var(--cream);text-decoration:underline;text-underline-offset:3px;">Privacy Policy</a> for processing, storage, and deletion details.</p></div>
         </details>
         <details class="fi2">
           <summary class="fq">What kind of practice does Oratly include?<span class="fch" aria-hidden="true">+</span></summary>
@@ -352,6 +389,15 @@
         <details class="fi2">
           <summary class="fq">What kind of feedback does Oratly provide?<span class="fch" aria-hidden="true">+</span></summary>
           <div class="fa"><p class="fai">Oratly reviews Directness, Structure, and Conciseness and shows what worked, what could improve, and an alternative way to start your response.</p></div>
+        </details>
+        <!-- 2026-10-17: Explain the existing feedback areas and unexpected-question practice. -->
+        <details class="fi2">
+          <summary class="fq">What do Directness, Structure, and Conciseness mean?<span class="fch" aria-hidden="true">+</span></summary>
+          <div class="fa"><p class="fai">Directness looks at whether you get to the point and answer the question. Structure looks at whether your answer is organized and easy to follow. Conciseness looks at whether you say what matters without unnecessary detail.</p></div>
+        </details>
+        <details class="fi2">
+          <summary class="fq">How can I practice answering unexpected questions?<span class="fch" aria-hidden="true">+</span></summary>
+          <div class="fa"><p class="fai">Use Think on Your Feet in Oratly to respond to an unexpected workplace prompt. Record your answer, review the feedback, and try another response with one improvement in mind. For a starting exercise, read our <a href="/guides/answer-unexpected-questions-at-work/" style="color:var(--cream);text-decoration:underline;text-underline-offset:3px;">guide to answering unexpected questions at work</a>.</p></div>
         </details>
       </div>
     </div>
@@ -364,7 +410,8 @@
     <div class="fti">
       <!-- 2026-10-17: Sized brand derivative reserves logo space. -->
       <a href="#"><img src="logo-web-small.png" width="292" height="96" alt="Oratly" style="height:36px;width:auto;display:block;" /></a>
-      <p class="fc2">&copy; 2026 Oratly. Built for professionals who want to speak better.</p>
+      <!-- 2026-10-17: Visible developer identity matches the existing privacy policy and App Store listing. -->
+      <p class="fc2">&copy; 2026 Oratly. Built for professionals who want to speak better.<br><span id="developer">Developed by Bibhuti Juyal.</span></p>
       <div class="nc"><a href="/support/" class="btn bg" style="font-size:13px;padding:12px 22px;">Support</a><a href="/terms/" class="btn bg" style="font-size:13px;padding:12px 22px;">Terms</a><a href="/privacy/" class="btn bg" style="font-size:13px;padding:12px 22px;">Privacy</a><a href="https://apps.apple.com/us/app/oratly-communication-coach/id6761913867" class="btn bp" style="font-size:13px;padding:12px 22px;">Download on the App Store</a></div>
     </div>
   </div>
